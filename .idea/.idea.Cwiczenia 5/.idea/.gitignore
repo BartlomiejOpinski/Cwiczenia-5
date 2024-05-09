@@ -4,8 +4,9 @@
 # Rider ignored files
 /modules.xml
 /projectSettingsUpdater.xml
+.idea/
+.idea.Cwiczenia 5/
 /.idea.Cwiczenia 5.iml
-.idea/.idea./Cwiczenia 5/.idea
 /contentModel.xml
 # Editor-based HTTP Client requests
 /httpRequests/
