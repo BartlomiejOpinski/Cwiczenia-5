@@ -1,6 +1,4 @@
 
-
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using Cwiczenia_5.Services;
@@ -11,17 +9,17 @@ namespace Cwiczenia_5.Controllers
     [ApiController]
     public class AnimalsController : ControllerBase
     {
-        private readonly IAnimalDbService _animalDbService;
+        private readonly IAnimalService _animalService;
 
-        public AnimalsController(IAnimalDbService animalDbService)
+        public AnimalsController(IAnimalService animalService)
         {
-            _animalDbService = animalDbService;
+            _animalService = animalService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAnimals(string orderBy)
         {
-            var result = _animalDbService.GetAnimals(orderBy);
+            var result = _animalService.GetAnimals(orderBy);
 
             return Ok(result);
         }
@@ -30,7 +28,7 @@ namespace Cwiczenia_5.Controllers
         [HttpPost]
         public async Task<IActionResult> AddAnimal(Animal animal)
         {
-            var result = _animalDbService.AddAnimal(animal);
+            var result = _animalService.AddAnimal(animal);
 
             if (result == 1)
             {
@@ -44,7 +42,7 @@ namespace Cwiczenia_5.Controllers
         [HttpPut("{idAnimal}")]
         public async Task<IActionResult> UpdateAnimal(Animal animal, int idAnimal)
         {
-            var result = _animalDbService.UpdateAnimal(animal, idAnimal);
+            var result = _animalService.UpdateAnimal(animal, idAnimal);
             if (result == 1)
             {
                 return Ok("Animal updated");
@@ -56,7 +54,7 @@ namespace Cwiczenia_5.Controllers
         [HttpDelete("{idAnimal}")]
         public async Task<IActionResult> DeleteAnimal(int idAnimal)
         {
-            var result = _animalDbService.DeleteAnimal(idAnimal);
+            var result = _animalService.DeleteAnimal(idAnimal);
 
             if (result == 1)
             {

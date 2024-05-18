@@ -2,9 +2,9 @@ using Cwiczenia_5.Controllers;
 
 namespace Cwiczenia_5.Services
 {
-    public interface IAnimalDbService
+    public interface IAnimalService
     {
-        public List<Animal> GetAnimals(string orderBy);
+        public IEnumerable<Animal> GetAnimals(string orderBy);
 
         public int AddAnimal(Animal animal);
 
